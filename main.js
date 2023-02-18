@@ -1,51 +1,60 @@
-const video = document.getElementById('video');
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
-const flipButton = document.getElementById('flip-button');
+const video = document.getElementById('video-stream');
+		const flipButton = document.getElementById('flip-button');
+		const takePhotoButton = document.getElementById('take-photo-button');
+		const retakePhotoButton = document.getElementById('retake-photo-button');
 
-// Use HTML Media Capture API to access the camera
-navigator.mediaDevices.getUserMedia({ video: true })
-  .then(stream => {
-    video.srcObject = stream;
-  })
-  .catch(error => {
-    console.error(error);
-  });
+		let isFrontCamera = true;
+		let stream;
 
-// Flip the camera when the button is clicked
-flipButton.addEventListener('click', () => {
-  // Get a list of available video input devices
-  navigator.mediaDevices.enumerateDevices()
-    .then(devices => {
-      // Find the video input device that is not the current device
-      const currentDeviceId = video.srcObject.getVideoTracks()[0].getSettings().deviceId;
-      const nextDevice = devices.find(device => device.kind === 'videoinput' && device.deviceId !== currentDeviceId);
-      if (nextDevice) {
-        // Use the next device to create a new video stream
-        const constraints = {
-          video: {
-            deviceId: { exact: nextDevice.deviceId }
-          }
-        };
-        navigator.mediaDevices.getUserMedia(constraints)
-          .then(stream => {
-            video.srcObject = stream;
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      }
-    })
-    .catch(error => {
-      console.error(error);
-    });
-});
+		// function to handle flipping the camera
+		function flipCamera() {
+			isFrontCamera = !isFrontCamera;
+			startCamera();
+		}
 
-// Capture a frame from the video stream at 1 second intervals
-setInterval(() => {
-  context.drawImage(video, 0, 0, canvas.width, canvas.height);
-  // Convert canvas to image
-  const img = canvas.toDataURL('image/png');
-  // Do something with the image data, such as send it to a server
-  console.log(img);
-}, 1000);
+		// function to handle taking a photo
+		function takePhoto() {
+			const canvas = document.createElement('canvas');
+			canvas.width = video.videoWidth;
+			canvas.height = video.videoHeight;
+			canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+			const photoURL = canvas.toDataURL('image/png');
+			video.style.display = 'none';
+			const photo = new Image();
+			photo.src = photoURL;
+			photo.onload = () => {
+				photo.style.width = '100%';
+				video.parentNode.insertBefore(photo, video);
+			}
+		}
+
+		// function to handle retaking a photo
+		function retakePhoto() {
+			video.style.display = 'block';
+			video.parentNode.removeChild(document.querySelector('img'));
+			startCamera();
+		}
+
+		// function to start the camera
+		async function startCamera() {
+			if (stream) {
+				stream.getTracks().forEach(track => track.stop());
+			}
+
+			try {
+				stream = await navigator.mediaDevices.getUserMedia({
+					video: {
+						facingMode: isFrontCamera ? 'user' : 'environment'
+					}
+				});
+				video.srcObject = stream;
+			} catch (error) {
+				console.error(error);
+			}
+		}
+
+		// initialize the camera and attach event listeners to the buttons
+		startCamera();
+		flipButton.addEventListener('click', flipCamera);
+		takePhotoButton.addEventListener('click', takePhoto);
+		retakePhotoButton.addEventListener('click', retakePhoto);
