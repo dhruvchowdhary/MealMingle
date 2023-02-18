@@ -2,6 +2,8 @@ const video = document.getElementById('video-stream');
 		const flipButton = document.getElementById('flip-button');
 		const takePhotoButton = document.getElementById('take-photo-button');
 		const retakePhotoButton = document.getElementById('retake-photo-button');
+		const uploadFileInput = document.getElementById('upload-file');
+		const uploadButton = document.getElementById('upload-button');
 
 		let isFrontCamera = true;
 		let stream;
@@ -11,7 +13,6 @@ const video = document.getElementById('video-stream');
 			isFrontCamera = !isFrontCamera;
 			startCamera();
 		}
-        
 
 		// function to handle taking a photo
 		function takePhoto() {
@@ -34,6 +35,29 @@ const video = document.getElementById('video-stream');
 			video.style.display = 'block';
 			video.parentNode.removeChild(document.querySelector('img'));
 			startCamera();
+		}
+
+		// function to handle uploading an image
+		function uploadImage() {
+			uploadFileInput.click();
+		}
+
+		// function to handle selecting a file to upload
+		function handleFileSelect(event) {
+			const file = event.target.files[0];
+			if (file.type.match('image.*')) {
+				const reader = new FileReader();
+				reader.onload = (readerEvent) => {
+					video.style.display = 'none';
+					const photo = new Image();
+					photo.src = readerEvent.target.result;
+					photo.onload = () => {
+						photo.style.width = '100%';
+						video.parentNode.insertBefore(photo, video);
+					}
+				};
+				reader.readAsDataURL(file);
+			}
 		}
 
 		// function to start the camera
@@ -59,3 +83,5 @@ const video = document.getElementById('video-stream');
 		flipButton.addEventListener('click', flipCamera);
 		takePhotoButton.addEventListener('click', takePhoto);
 		retakePhotoButton.addEventListener('click', retakePhoto);
+		uploadButton.addEventListener('click', uploadImage);
+        uploadFileInput.addEventListener('change', handleFileSelect);
