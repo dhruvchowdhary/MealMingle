@@ -11,6 +11,7 @@ const video = document.getElementById('video-stream');
 			isFrontCamera = !isFrontCamera;
 			startCamera();
 		}
+        
 
 		// function to handle taking a photo
 		function takePhoto() {
