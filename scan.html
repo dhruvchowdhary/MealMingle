@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Display Webcam Stream</title>
- 
-<style>
-#container {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 10px #333 solid;
-}
-#videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-}
-</style>
+  <title>Camera Capture Example</title>
+  <link rel="stylesheet" href="scan.css">
 </head>
- 
 <body>
-<div id="container">
-	<video autoplay="true" id="videoElement">
-	
-	</video>
-</div>
-<script>
+  <button id="capture-btn">Take Picture</button>
+  <canvas id="canvas" width="640" height="480"></canvas>
 
-</script>
+  <script src="main.js"></script>
 </body>
 </html>
