@@ -9,7 +9,6 @@
     <meta property="og:description" content="" />
 
     <!-- css -->
-    <link rel="stylesheet" href="css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -17,91 +16,128 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="css/main.css" />
 
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
-  <div class="root grid-col gap-2rem">
-    <nav>back arrow</nav>
-    <div class="grid-col grid-2by gap-1rem">
-      <div class="grid-col">
-        <h1>8</h1>
-        <p>Items Identified</p>
-      </div>
-      <div class="grid-col">
-        <h1>$113.50</h1>
-        <p>Items Identified</p>
-      </div>
-      <div class="grid-col">
-        <h1>6</h1>
-        <p>Items Identified</p>
-      </div>
-      <div class="grid-col">
-        <h1>$12.24</h1>
-        <p>Items Identified</p>
-      </div>
-    </div>
-    <div class="grid-col grid-2by gap-1rem">
-      <div class="button outline">Settle</div>
-      <div class="button solid">Settle</div>
-    </div>
-    <div class="separator"></div>
-    <div class="grid-col grid-2by gap-1rem">
-      <div class="grid-col">
-        <h1>2</h1>
-        <p>Items Selected</p>
-      </div>
-      <div class="grid-col">
-        <h1>$10.23</h1>
-        <p>Your Total</p>
-      </div>
-    </div>
-    <div class="grid-col gap-1rem">
-      <div class="item">
-        <div class="grid-col space-between align-center">
-          <div>
-            <p>Item Name</p>
-            <p class="secondary">Price</p>
+  <body>
+    <div class="modal" id="settle">
+      <div class="modal--inner">
+        <div class="grid-col gap-2rem">
+          <nav><a href="#" class="icon close"></a></nav>
+          <div class="grid-col gap-1rem">
+            <p>Settle Receipt Split</p>
+            <h1>No unpaid items remain</h1>
+            <p>
+              Marking this receipt as settled terminates external access to your
+              receipts. No further payments can be made.
+            </p>
           </div>
-          <div class="button outline--dark icon">+</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="grid-col space-between align-center">
-          <div>
-            <p>Item Name</p>
-            <p class="secondary">Price</p>
-          </div>
-          <div class="button outline--dark icon">+</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="grid-col space-between align-center">
-          <div>
-            <p>Item Name</p>
-            <p class="secondary">Price</p>
-          </div>
-          <div class="button outline--dark icon">+</div>
-        </div>
-      </div>
-      <div class="item active">
-        <div class="grid-col space-between align-center">
-          <div>
-            <p>Item Name</p>
-            <p class="secondary">Price</p>
-          </div>
-          <div class="button outline--dark icon">+</div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="grid-col space-between align-center">
-          <div>
-            <p>Item Name</p>
-            <p class="secondary">Price</p>
-          </div>
-          <div class="button outline--dark icon">+</div>
+          <div class="button solid">Settle</div>
+          <div class="button outline">Cancel</div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="modal" id="share">
+      <div class="modal--inner">
+        <div class="grid-col gap-2rem">
+          <nav><a href="#" class="icon close"></a></nav>
+          <div class="grid-col">
+            <p>Share Receipt Split</p>
+            <h1>$113.50</h1>
+            <p>Spent on 8 Items</p>
+          </div>
+          <div class="button outline">
+            <img src="images/qr.png" class="img-fit" />
+          </div>
+          <div class="button solid">Copy Sharing Link</div>
+        </div>
+      </div>
+    </div>
+    <div class="root grid-col gap-2rem">
+      <nav><a href="#" class="icon back"></a></nav>
+      <div class="grid-col grid-2by gap-1rem">
+        <div class="grid-col gap-1rem">
+          <h1>8</h1>
+          <p>Items Identified</p>
+        </div>
+        <div class="grid-col gap-1rem">
+          <h1>$113.50</h1>
+          <p>Total Spent</p>
+        </div>
+        <div class="grid-col gap-1rem">
+          <h1>6</h1>
+          <p>Unpaid Items</p>
+        </div>
+        <div class="grid-col gap-1rem">
+          <h1>$95.24</h1>
+          <p>Total Owed</p>
+        </div>
+      </div>
+      <div class="grid-col grid-2by gap-1rem">
+        <div class="button outline" onClick="openSettleModal()">Settle</div>
+        <div class="button solid" onClick="openShareModal()">Share</div>
+      </div>
+      <div class="separator"></div>
+      <div class="grid-col grid-2by gap-1rem">
+        <div class="grid-col">
+          <h1>2</h1>
+          <p>Items Selected</p>
+        </div>
+        <div class="grid-col">
+          <h1>$10.23</h1>
+          <p>Your Total</p>
+        </div>
+      </div>
+      <div class="grid-col gap-1rem">
+        <div class="item">
+          <div class="grid-col space-between align-center">
+            <div>
+              <p>Item Name</p>
+              <p class="secondary">Price</p>
+            </div>
+            <div class="button outline--dark icon">+</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="grid-col space-between align-center">
+            <div>
+              <p>Item Name</p>
+              <p class="secondary">Price</p>
+            </div>
+            <div class="button outline--dark icon">+</div>
+          </div>
+        </div>
+        <div class="item active">
+          <div class="grid-col space-between align-center">
+            <div>
+              <p>Item Name</p>
+              <p class="secondary">Price</p>
+            </div>
+            <div class="button solid--dark icon">-</div>
+          </div>
+        </div>
+        <div class="item active">
+          <div class="grid-col space-between align-center">
+            <div>
+              <p>Item Name</p>
+              <p class="secondary">Price</p>
+            </div>
+            <div class="button solid--dark icon">-</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="grid-col space-between align-center">
+            <div>
+              <p>Item Name</p>
+              <p class="secondary">Price</p>
+            </div>
+            <div class="button outline--dark icon">+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/buyer.js"></script>
+  </body>
 </html>
