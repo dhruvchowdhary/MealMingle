@@ -23,6 +23,10 @@ let openDetailsModal = function () {
   $("#details").show();
 };
 
+let openConfirmModal = function () {
+  $("#confirm").show();
+};
+
 let copyText = function () {
   $("#copy").html("Copied!");
   setTimeout(function () {

@@ -22,61 +22,56 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
   <body>
+    <div class="modal" id="confirm">
+      <div class="modal--inner">
+        <div class="grid-col gap-2rem">
+          <nav><a href="#" class="icon close"></a></nav>
+          <div class="grid-col gap-1rem">
+            <p>Settle Receipt</p>
+            <h1>No items selected</h1>
+            <p>
+              You have not selected any items. Are you sure you want to settle?
+            </p>
+          </div>
+          <div class="grid-col gap-1rem">
+            <a href="index.html" class="button solid">Settle</a>
+            <a onClick="closeModal()" class="button outline">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="root grid-col gap-2rem">
       <nav><a href="client.html" class="icon back"></a></nav>
       <div class="grid-col gap-1rem">
         <div class="grid-col gap-1rem">
-          <h1>$24.50</h1>
+          <h1>$0.00</h1>
           <p>Total Spent</p>
         </div>
       </div>
 
       <div class="separator"></div>
       <div class="grid-col gap-1rem">
-        <div class="item active">
-          <div class="grid-col space-between align-center">
-            <div>
-              <p>Item Name</p>
-              <p class="secondary">Price</p>
-            </div>
-          </div>
-        </div>
-        <div class="item active">
-          <div class="grid-col space-between align-center">
-            <div>
-              <p>Item Name</p>
-              <p class="secondary">Price</p>
-            </div>
-          </div>
-        </div>
-        <div class="item active">
-          <div class="grid-col space-between align-center">
-            <div>
-              <p>Item Name</p>
-              <p class="secondary">Price</p>
-            </div>
-          </div>
-        </div>
+        <p>You have not selected any items.</p>
       </div>
       <div class="separator"></div>
       <div>
         <div class="grid-col space-between">
-          <p>Subtotal (3 items):</p>
-          <p>$19.46</p>
+          <p>Subtotal (0 items):</p>
+          <p>$0.00</p>
         </div>
         <div class="grid-col space-between">
-          <p>Tax (9.5%):</p>
-          <p>$1.84</p>
+          <p>Tax (6%):</p>
+          <p>$0.00</p>
         </div>
         <div class="grid-col space-between">
-          <p>Tip (15%):</p>
-          <p>$3.20</p>
+          <p>Tip (%):</p>
+          <p>$0.00</p>
         </div>
       </div>
       <div class="separator"></div>
       <div class="grid-col grid-2by gap-2rem">
         <a href="client.html" class="button outline">Cancel</a>
-        <a href="index.html" class="button solid">Settle</a>
+        <dev onclick="openConfirmModal()" class="button solid">Settle</dev>
       </div>
     </div>
     <script src="js/buyer.js"></script>
