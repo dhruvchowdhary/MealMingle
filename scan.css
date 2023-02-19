@@ -1,21 +1,26 @@
 #video-container {
     position: relative;
-    width: 640px;
-    height: 480px;
+    max-width: 390px;
+    height: auto;
   }
 
   #video {
-    width: 100%;
-    height: 100%;
+    max-width: 390px;
+    height: auto;
   }
 
   #button-container {
     margin-top: 20px;
   }
 
+  .backbutton {
+    max-width: 30px;
+    height: auto;
+  }
+
   .button {
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     border: none;
     border-radius: 5px;
@@ -24,7 +29,7 @@
   }
 
   #upload-label {
-    background-color: #4CAF50;
+    background-color: #000000;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -32,7 +37,11 @@
   }
   
   #upload-label:hover {
-    background-color: #3e8e41;
+    background-color: #2e2e2e;
+  }
+
+  .button:hover {
+    background-color: #2e2e2e;
   }
   
   #upload-btn {
