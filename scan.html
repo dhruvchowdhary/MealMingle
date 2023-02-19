@@ -2,32 +2,7 @@
 <html>
   <head>
     <title>Live Video Example</title>
-    <style>
-      #video-container {
-        position: relative;
-        width: 640px;
-        height: 480px;
-      }
-
-      #video {
-        width: 100%;
-        height: 100%;
-      }
-
-      #button-container {
-        margin-top: 20px;
-      }
-
-      .button {
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        margin-right: 10px;
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="scan.css">
   </head>
   <body>
     <div id="video-container">
@@ -38,6 +13,9 @@
       <button class="button" id="take-picture-button">Take Picture</button>
       <button class="button" id="retake-picture-button" style="display:none">Retake Picture</button>
       <button class="button" id="api-button">Display API Code</button>
+      <input type="file" accept="image/*" id="upload-btn">
+      <label for="upload-btn" id="upload-label">Upload Picture</label>
+
     </div>
     <script src="main.js"></script>
   </body>
