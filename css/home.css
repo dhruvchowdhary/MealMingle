@@ -1,12 +1,14 @@
-button[type="submit"] {
+.bottom {
     background-color: #27DE9C;
     color: white;
     padding: 14px 20px;
     margin: 8px 0px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 400px;
+    position:absolute;
+    bottom: 5%;
   }
 
   h1 {
@@ -14,4 +16,14 @@ button[type="submit"] {
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    text-align: center;
   }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
