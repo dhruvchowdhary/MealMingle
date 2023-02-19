@@ -59,7 +59,8 @@ body,
 
 h1,
 p,
-a {
+a,
+input {
   font-family: var(--font);
   padding: 0;
   margin: 0;
@@ -142,12 +143,12 @@ p.secondary {
 
 /* buttons */
 
-.button {
+.button,
+input {
   display: flex;
   padding: 1rem 1rem;
   border-radius: 0.5rem;
   font-family: var(--font);
-  font-weight: var(--bold);
   text-decoration: none;
   text-align: center;
   cursor: pointer;
@@ -157,7 +158,16 @@ p.secondary {
   height: fit-content;
 }
 
-.outline {
+.button {
+  font-weight: var(--bold);
+}
+
+.input {
+  font-weight: var(regular) !important;
+}
+
+.outline,
+input {
   border: 1px solid var(--outline);
 }
 

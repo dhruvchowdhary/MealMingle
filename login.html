@@ -9,8 +9,6 @@
     <meta property="og:description" content="" />
 
     <!-- css -->
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -18,32 +16,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="css/main.css" />
 
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/login.css" />
   </head>
   <body>
-    <a href="home.html"><img class="backbutton" src="icons/backbutton.png"/></a>
-    <div class="login-box">
-      <h1>ENTER YOUR DETAILS</h1>
-      <form action="index.html">
-        
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Full Name"
-        /><br />
-        
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          placeholder="Phone Number"
-        /><br />
+    <div class="root grid-col gap-2rem">
+      <nav><a href="home.html" class="icon back"></a></nav>
 
-        <a class="bottom" href="index.html" style="text-decoration: none"><div class="button solid">Continue</div></a>
+      <h1>ENTER YOUR DETAILS</h1>
+      <form action="index.html" class="grid-col gap-1rem">
+        <input type="text" id="name" name="name" placeholder="Full Name" />
+
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" />
+
+        <a class="button solid" href="index.html">Get Started</a>
       </form>
     </div>
   </body>
