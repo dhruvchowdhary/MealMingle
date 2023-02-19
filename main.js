@@ -23,5 +23,5 @@ startButton.addEventListener('click', () => {
 });
 
 confirmButton.addEventListener('click', () => {
-  window.location.href = 'https://example.com/confirm';
+  window.location.href = 'scanned.html';
 });
