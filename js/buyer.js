@@ -12,3 +12,7 @@ let openShareModal = function () {
 let openSettleModal = function () {
   $("#settle").show();
 };
+
+let openDetailsModal = function () {
+  $("#details").show();
+};

@@ -22,74 +22,53 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
   <body>
-    <div class="modal" id="settle">
+    <div class="modal" id="details">
       <div class="modal--inner">
         <div class="grid-col gap-2rem">
           <nav><a href="#" class="icon close"></a></nav>
           <div class="grid-col gap-1rem">
-            <p>Settle Receipt Split</p>
-            <h1>No unpaid items remain</h1>
-            <p>
-              Marking this receipt as settled terminates external access to your
-              receipts. No further payments can be made.
-            </p>
+            <p>Your Transaction</p>
+            <h1>Pricing Details</h1>
+            <p>Your final total includes tax and tip, if applicable.</p>
           </div>
-          <div class="button solid">Settle</div>
-          <div class="button outline">Cancel</div>
-        </div>
-      </div>
-    </div>
-    <div class="modal" id="share">
-      <div class="modal--inner">
-        <div class="grid-col gap-2rem">
-          <nav><a href="#" class="icon close"></a></nav>
-          <div class="grid-col">
-            <p>Share Receipt Split</p>
-            <h1>$113.50</h1>
-            <p>Spent on 8 Items</p>
+          <div class="grid-col gap-1rem">
+            <div class="grid-col space-between">
+              <p>Subtotal (3 items):</p>
+              <p>$19.46</p>
+            </div>
+            <div class="grid-col space-between">
+              <p>Tax (9.5%):</p>
+              <p>$1.84</p>
+            </div>
+            <div class="grid-col space-between">
+              <p>Tip (15%):</p>
+              <p>$3.20</p>
+            </div>
+            <div class="separator"></div>
+            <div class="grid-col space-between">
+              <p>Total:</p>
+              <p>$24.40</p>
+            </div>
           </div>
-          <div class="button outline">
-            <img src="images/qr.png" class="img-fit" />
-          </div>
-          <div class="button solid">Copy Sharing Link</div>
         </div>
       </div>
     </div>
     <div class="root grid-col gap-2rem">
-      <nav><a href="scan.html" class="icon back"></a></nav>
       <div class="grid-col grid-2by gap-1rem">
         <div class="grid-col gap-1rem">
-          <h1>8</h1>
-          <p>Items Identified</p>
-        </div>
-        <div class="grid-col gap-1rem">
-          <h1>$113.50</h1>
-          <p>Total Spent</p>
-        </div>
-        <div class="grid-col gap-1rem">
-          <h1>6</h1>
-          <p>Unpaid Items</p>
-        </div>
-        <div class="grid-col gap-1rem">
-          <h1>$95.24</h1>
-          <p>Total Owed</p>
-        </div>
-      </div>
-      <div class="grid-col grid-2by gap-1rem">
-        <div class="button outline" onClick="openSettleModal()">Settle</div>
-        <div class="button solid" onClick="openShareModal()">Share</div>
-      </div>
-      <div class="separator"></div>
-      <div class="grid-col grid-2by gap-1rem">
-        <div class="grid-col">
-          <h1>2</h1>
+          <h1>3</h1>
           <p>Items Selected</p>
         </div>
-        <div class="grid-col">
-          <h1>$10.23</h1>
+        <div class="grid-col gap-1rem">
+          <h1>$24.40</h1>
           <p>Your Total</p>
         </div>
       </div>
+      <div class="grid-col grid-2by gap-1rem">
+        <div class="button outline" onClick="openDetailsModal()">Details</div>
+        <a href="checkout.html" class="button solid">Checkout</a>
+      </div>
+      <div class="separator"></div>
       <div class="grid-col gap-1rem">
         <div class="item">
           <div class="grid-col space-between align-center">
