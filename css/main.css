@@ -1,6 +1,6 @@
 :root {
   --transparent: #fff0;
-  --yellow: #fed330;
+  --green: #27de9c;
   --hover-grey: #999999;
 
   /* light mode styles */
@@ -8,40 +8,35 @@
   --white: #fff;
   --lightgrey: #fafafa;
 
-  /* dark mode styles */
-  --darkmode-darkgrey: #101010;
-  --darkmode-lightgrey: #191818;
-
   /* fonts */
-  --headline: "Helvetica Now Display";
-  --bodycopy: "Helvetica Now Display";
-  --bold: 800;
-  --regular: 400;
-}
+  --font: "Muoto";
 
-/* highlight */
-::selection {
-  background: var(--yellow); /* WebKit/Blink Browsers */
-}
-::-moz-selection {
-  background: var(--yellow); /* Gecko Browsers */
+  --black: 800;
+  --bold: 600;
+  --regular: 400;
 }
 
 /* fonts */
 
 @font-face {
-  font-family: "Helvetica Now Display";
-  src: url("../fonts/HelveticaNowDisplay-Bold.woff2") format("woff2");
+  font-family: "Muoto";
+  src: url("../fonts/MuotoTrial-Black.otf") format("opentype");
   font-weight: 800;
 }
 @font-face {
-  font-family: "Helvetica Now Display";
-  src: url("../fonts/HelveticaNowDisplay-Regular.otf") format("opentype");
-  font-weight: 400;
+  font-family: "Muoto";
+  src: url("../fonts/MuotoTrial-Bold.otf") format("opentype");
+  font-weight: 600;
 }
 
 @font-face {
-  font-family: "Helvetica Now Text";
-  src: url("../fonts/HelveticaNowText-Regular.otf") format("opentype");
+  font-family: "Muoto";
+  src: url("../fonts/MuotoTrial-Regular.otf") format("opentype");
   font-weight: 400;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
