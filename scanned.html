@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Scanned Receipt</title>
-    <style>
-      table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-bottom: 20px;
-      }
-      th, td {
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: left;
-      }
-      th {
-        background-color: #f0f0f0;
-        font-weight: bold;
-      }
-    </style>
+    <title>Scanned Receipt </title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="scanned.css">
   </head>
   <body>
     <h1>Scanned Receipt</h1>
@@ -30,7 +16,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>Item 1</td>
+          <td>Item 8</td>
           <td>$10.00</td>
         </tr>
         <tr>
@@ -41,7 +27,14 @@
           <td>Item 3</td>
           <td>$20.00</td>
         </tr>
+        <tr>
+          <img src="frame (2).png" alt = "QR Code" class = "center">
+        </tr>
+          <button> <a href = "scanned.css" class = "center myButton" id="pay-btn">Pay</a>
+          </button>
+        
       </tbody>
     </table>
+    <script src = "call.js"></script>
   </body>
 </html>
