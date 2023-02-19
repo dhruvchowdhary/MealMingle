@@ -1,23 +1,20 @@
-const scanBtn = document.getElementById('scan-btn');
+const startButton = document.getElementById('start-scanning');
 const imageContainer = document.getElementById('image-container');
 
-scanBtn.addEventListener('click', () => {
-  // Prompt the user to take a photo, choose from camera roll, or upload from files
+startButton.addEventListener('click', () => {
   const input = document.createElement('input');
   input.type = 'file';
   input.accept = 'image/*';
-  input.capture = 'environment';
-  input.onchange = (event) => {
-    // Display the selected image on the screen
-    const file = event.target.files[0];
+  input.capture = 'camera';
+  input.addEventListener('change', () => {
+    const file = input.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onload = (event) => {
+    reader.onload = () => {
       const img = document.createElement('img');
-      img.src = event.target.result;
-      imageContainer.innerHTML = '';
+      img.src = reader.result;
       imageContainer.appendChild(img);
     };
-  };
+  });
   input.click();
 });
