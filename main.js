@@ -88,6 +88,6 @@ const mindeeSubmit = (evt) => {
   });
 
   xhr.open("POST", "https://api.mindee.net/v1/products/mindee/expense_receipts/v4/predict");
-  xhr.setRequestHeader("Authorization", "Token my-api-key-here");
+  xhr.setRequestHeader("Authorization", "62300b4895127eb01ff01cf7c1614417");
   xhr.send(data);
 };

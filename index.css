@@ -1,0 +1,23 @@
+.myButton {
+    align-self: center;
+    text-align: center;
+	background-color:#44c767;
+	border-radius:28px;
+	border:6px solid #18ab29;
+    margin: 20px;
+    max-width: 200px;
+	display:grid;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:26px;
+	padding:32px 35px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
