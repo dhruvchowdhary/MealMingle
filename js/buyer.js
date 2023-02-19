@@ -1,3 +1,5 @@
+let delayInMilliseconds = 2000;
+
 $(window).on("load", function () {
   $(".modal").hide();
 });
@@ -15,4 +17,11 @@ let openSettleModal = function () {
 
 let openDetailsModal = function () {
   $("#details").show();
+};
+
+let copyText = function () {
+  $("#copy").html("Copied!");
+  setTimeout(function () {
+    $("#copy").html("Copy Sharing Link");
+  }, delayInMilliseconds);
 };
