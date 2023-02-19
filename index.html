@@ -9,8 +9,7 @@
     <meta property="og:description" content="" />
 
     <!-- css -->
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="stylesheet" href="css/main.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
@@ -18,22 +17,32 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="css/main.css" />
 
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
 
   <body>
-    <h1 class="headwidth">EXPLORE OUR TOOLS</h1>
-  <div class="center">
-    <button class="bothButtons" onclick="window.location.href = 'scan.html';">
-        <p class="bold">Receipt Scan</p>
-        <p class="button-text">The easiest way to split a bill</p>
-    </button>
-    <button class="bothButtons" onclick="window.location.href = 'https://ide.geeksforgeeks.org';">
-        <p class="bold">Food Finder</p>
-        <p class="button-text">Local food finds, powered by AI</p>
-    </button>
-  </div>
-</body>
+    <div class="root grid-col gap-2rem">
+      <h1 class="">EXPLORE OUR TOOLS</h1>
+      <div class="grid-col gap-1rem">
+        <p>The easiest way to split a bill</p>
+        <a href="buyer.html" class="button solid">
+          <div class="grid-col gap-1rem">Receipt Scan</div>
+        </a>
+      </div>
+      <div class="grid-col gap-1rem">
+        <p>Local food finds, powered by AI</p>
+        <a
+          href="https://winson.retool.com/apps/99560f0a-afc1-11ed-bad4-1fc679d145d9/Hackathon%20Project?_releaseVersion=latest"
+          class="button outline"
+        >
+          <div class="grid-col gap-1rem">
+            <p>Food Finder</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </body>
 </html>
