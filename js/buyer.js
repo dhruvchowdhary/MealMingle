@@ -8,6 +8,10 @@ $(".close").on("click", function () {
   $(".modal").hide();
 });
 
+let closeModal = function () {
+  $(".modal").hide();
+};
+
 let openShareModal = function () {
   $("#share").show();
 };

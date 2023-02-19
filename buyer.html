@@ -34,8 +34,8 @@
               receipts. No further payments can be made.
             </p>
           </div>
-          <div class="button solid">Settle</div>
-          <div class="button outline">Cancel</div>
+          <a href="index.html" class="button solid">Settle</a>
+          <a onClick="closeModal()" class="button outline">Cancel</a>
         </div>
       </div>
     </div>
@@ -51,7 +51,9 @@
           <div class="button outline">
             <img src="images/qr.png" class="img-fit" />
           </div>
-          <div class="button solid" id="copy" onClick="copyText()">Copy Sharing Link</div>
+          <div class="button solid" id="copy" onClick="copyText()">
+            Copy Sharing Link
+          </div>
         </div>
       </div>
     </div>
