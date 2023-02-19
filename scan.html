@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Food Tools | TreeHacks</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Live Video Example</title>
-    <link rel="stylesheet" href="css/scan.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Team Medium Commitment" />
+    <meta name="theme-color" content="#27DE9C" />
+    <meta property="og:description" content="" />
+
+    <!-- css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   </head>
   <body>
-    <a href="index.html"
-      ><img class="backbutton" src="icons/backbutton.png"
-    /></a>
-    <h2>Scan receipt</h2>
-    <p>Center your entire receipt in the frame</p>
-    <div id="image-container"></div>
-    <div id="button-container">
-      <button class="button" id="upload-receipt">Upload Receipt</button>
-      <button class="button" id="confirm-button" disabled>
-        Start Scanning
-      </button>
+    <div class="root grid-col gap-2rem">
+      <nav><a href="index.html" class="icon back"></a></nav>
+
+      <div class="grid-col gap-1rem">
+        <h1>Scan Receipt</h1>
+        <p>Center your entire receipt in the frame</p>
+      </div>
+
+      <div class="button outline">
+        <img src="images/receipt.jpeg" alt="Scan" class="img-fit" />
+      </div>
+
+      <div class="grid-col gap-1rem">
+        <a href="buyer.html" class="button solid">Scan</a>
+      </div>
     </div>
-    <script src="main.js"></script>
+    <script src="js/buyer.js"></script>
   </body>
 </html>
