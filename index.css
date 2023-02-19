@@ -1,5 +1,4 @@
 .myButton {
-    align-self: center;
     text-align: center;
 	background-color:#44c767;
 	border-radius:28px;
@@ -20,4 +19,10 @@
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+.center {
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
