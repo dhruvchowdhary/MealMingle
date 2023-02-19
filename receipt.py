@@ -1,7 +1,5 @@
 import requests
 
-print("=== Python Receipt OCR Demo - Need help? Email support@asprise.com ===")
-
 receiptOcrEndpoint = 'https://ocr.asprise.com/api/v1/receipt' # Receipt OCR API endpoint
 imageFile = "receipt.jpg" # // Modify this to use your own file if necessary
 r = requests.post(receiptOcrEndpoint, data = { \
