@@ -1,17 +1,19 @@
 :root {
   --transparent: #fff0;
   --green: #27de9c;
-  --hover-grey: #999999;
+  --lightgreen: #f6fbfa;
+  --grey: #999999;
 
   /* light mode styles */
   --black: #000;
   --white: #fff;
   --lightgrey: #fafafa;
+  --outline: #00000010;
 
   /* fonts */
-  --font: "Muoto";
+  --font: Muoto, Gain, sans-serif, Arial;
 
-  --black: 800;
+  --heavy: 800;
   --bold: 600;
   --regular: 400;
 }
@@ -35,8 +37,110 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "Gain";
+  src: url("../fonts/gain-bold.otf") format("opentype");
+  font-weight: 400;
+}
+
 html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+h1,
+p {
+  font-family: var(--font);
+}
+
+p.secondary {
+  color: var(--grey);
+}
+
+/* global styles */
+
+.grid-col {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+.grid-2by {
+  grid-template-columns: 1fr 1fr;
+}
+.gap-1rem {
+  grid-gap: 1rem;
+}
+.gap-2rem {
+  grid-gap: 2rem;
+}
+
+.space-between {
+  justify-content: space-between;
+  grid-template-columns: auto auto;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/* separator */
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--outline);
+}
+
+/* buttons */
+
+.button {
+  display: flex;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-family: var(--font);
+  font-weight: var(--bold);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.outline {
+  border: 1px solid var(--outline);
+}
+
+.outline--dark {
+  border: 1px solid var(--black);
+}
+
+.solid {
+  background-color: var(--green);
+}
+
+.icon {
+  border-radius: 9999px;
+  height: 20px;
+  width: 20px;
+}
+
+/* items */
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--outline);
+  transition: all 0.2s ease-in-out;
+}
+
+.item.active {
+  background-color: var(--lightgreen);
 }
