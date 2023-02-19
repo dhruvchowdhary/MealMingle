@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Live Video Camera</title>
-    <link rel="stylesheet" href="scan.css">
-	
-</head>
-<body>
-	<div id="video-container">
-		<video id="video-stream" autoplay></video>
-	</div>
-	<button id="flip-button">Flip Camera</button>
-	<button id="take-photo-button">Take Photo</button>
-	<button id="retake-photo-button">Retake Photo</button>
-	<input type="file" accept="image/*" id="upload-file">
-	<button id="upload-button">Upload Image</button>
+  <head>
+    <title>Live Video Example</title>
+    <style>
+      #video-container {
+        position: relative;
+        width: 640px;
+        height: 480px;
+      }
 
-	<script src="main.js"></script>
+      #video {
+        width: 100%;
+        height: 100%;
+      }
 
-</body>
+      #button-container {
+        margin-top: 20px;
+      }
+
+      .button {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="video-container">
+      <video id="video" autoplay></video>
+    </div>
+    <div id="button-container">
+      <button class="button" id="flip-button">Flip Camera</button>
+      <button class="button" id="take-picture-button">Take Picture</button>
+      <button class="button" id="retake-picture-button" style="display:none">Retake Picture</button>
+      <button class="button" id="api-button">Display API Code</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>

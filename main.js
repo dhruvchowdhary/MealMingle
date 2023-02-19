@@ -1,87 +1,93 @@
-const video = document.getElementById('video-stream');
-		const flipButton = document.getElementById('flip-button');
-		const takePhotoButton = document.getElementById('take-photo-button');
-		const retakePhotoButton = document.getElementById('retake-photo-button');
-		const uploadFileInput = document.getElementById('upload-file');
-		const uploadButton = document.getElementById('upload-button');
+// get video element and button elements
+const video = document.getElementById('video');
+const flipButton = document.getElementById('flip-button');
+const takePictureButton = document.getElementById('take-picture-button');
+const retakePictureButton = document.getElementById('retake-picture-button');
+const apiButton = document.getElementById('api-button');
 
-		let isFrontCamera = true;
-		let stream;
+// create video stream
+navigator.mediaDevices.getUserMedia({video: true})
+  .then(stream => {
+    video.srcObject = stream;
+  })
+  .catch(error => {
+    console.log(error);
+  });
 
-		// function to handle flipping the camera
-		function flipCamera() {
-			isFrontCamera = !isFrontCamera;
-			startCamera();
-		}
+// flip camera functionality
+let facingMode = 'user';
+flipButton.addEventListener('click', () => {
+  facingMode = facingMode === 'user' ? 'environment' : 'user';
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: facingMode } } })
+    .then(stream => {
+      video.srcObject = stream;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 
-		// function to handle taking a photo
-		function takePhoto() {
-			const canvas = document.createElement('canvas');
-			canvas.width = video.videoWidth;
-			canvas.height = video.videoHeight;
-			canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-			const photoURL = canvas.toDataURL('image/png');
-			video.style.display = 'none';
-			const photo = new Image();
-			photo.src = photoURL;
-			photo.onload = () => {
-				photo.style.width = '100%';
-				video.parentNode.insertBefore(photo, video);
-			}
-		}
+// take picture functionality
+takePictureButton.addEventListener('click', () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  const dataUrl = canvas.toDataURL('image/png');
+  video.style.display = 'none';
+  retakePictureButton.style.display = 'inline-block';
+  takePictureButton.style.display = 'none';
+  video.srcObject.getTracks().forEach(track => {
+    track.stop();
+  });
+  const image = new Image();
+  image.src = dataUrl;
+  image.onload = () => {
+    document.getElementById('video-container').appendChild(image);
+  }
+});
 
-		// function to handle retaking a photo
-		function retakePhoto() {
-			video.style.display = 'block';
-			video.parentNode.removeChild(document.querySelector('img'));
-			startCamera();
-		}
+// retake picture functionality
+retakePictureButton.addEventListener('click', () => {
+  video.style.display = 'inline-block';
+  takePictureButton.style.display = 'inline-block';
+  retakePictureButton.style.display = 'none';
+  document.getElementById('video-container').removeChild(document.querySelector('#video-container img'))
+});
 
-		// function to handle uploading an image
-		function uploadImage() {
-			uploadFileInput.click();
-		}
+// display API code functionality
+apiButton.addEventListener('click', () => {
+  const form = document.createElement('form');
+  form.setAttribute('onsubmit', 'mindeeSubmit(event)');
+  const inputFile = document.createElement('input');
+  inputFile.setAttribute('type', 'file');
+  inputFile.setAttribute('id', 'my-file-input');
+  inputFile.setAttribute('name', 'file');
+  const submitButton = document.createElement('input');
+  submitButton.setAttribute('type', 'submit');
+  form.appendChild(inputFile);
+  form.appendChild(submitButton);
+  document.getElementById('button-container').appendChild(form);
+});
 
-		// function to handle selecting a file to upload
-		function handleFileSelect(event) {
-			const file = event.target.files[0];
-			if (file.type.match('image.*')) {
-				const reader = new FileReader();
-				reader.onload = (readerEvent) => {
-					video.style.display = 'none';
-					const photo = new Image();
-					photo.src = readerEvent.target.result;
-					photo.onload = () => {
-						photo.style.width = '100%';
-						video.parentNode.insertBefore(photo, video);
-					}
-				};
-				reader.readAsDataURL(file);
-			}
-		}
+// API code functionality
+const mindeeSubmit = (evt) => {
+  evt.preventDefault();
+  let myFileInput = document.getElementById('my-file-input');
+  let myFile = myFileInput.files[0];
+  if (!myFile) { return; }
+  let data = new FormData();
+  data.append("document", myFile, myFile.name);
 
-		// function to start the camera
-		async function startCamera() {
-			if (stream) {
-				stream.getTracks().forEach(track => track.stop());
-			}
+  let xhr = new XMLHttpRequest();
 
-			try {
-				stream = await navigator.mediaDevices.getUserMedia({
-					video: {
-						facingMode: isFrontCamera ? 'user' : 'environment'
-					}
-				});
-				video.srcObject = stream;
-			} catch (error) {
-				console.error(error);
-			}
-		}
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
 
-		// initialize the camera and attach event listeners to the buttons
-		startCamera();
-		flipButton.addEventListener('click', flipCamera);
-		takePhotoButton.addEventListener('click', takePhoto);
-		retakePhotoButton.addEventListener('click', retakePhoto);
-		uploadButton.addEventListener('click', uploadImage);
-        uploadFileInput.addEventListener('change', handleFileSelect);
+  xhr.open("POST", "https://api.mindee.net/v1/products/mindee/expense_receipts/v4/predict");
+  xhr.setRequestHeader("Authorization", "Token my-api-key-here");
+  xhr.send(data);
+};
