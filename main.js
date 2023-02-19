@@ -6,6 +6,7 @@ startButton.addEventListener('click', () => {
   const input = document.createElement('input');
   input.type = 'file';
   input.accept = 'image/*';
+  input.capture = 'environment';
   input.addEventListener('change', () => {
     const file = input.files[0];
     const reader = new FileReader();
@@ -14,6 +15,7 @@ startButton.addEventListener('click', () => {
       const img = document.createElement('img');
       img.src = reader.result;
       imageContainer.appendChild(img);
+      confirmButton.style.display = 'block';
       confirmButton.disabled = false;
     };
   });

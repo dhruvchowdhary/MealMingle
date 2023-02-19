@@ -50,4 +50,9 @@
   #upload-btn {
     display: none;
   }
+
+  #confirm-button {
+    display: none;
+    margin-left: 130px;
+  }
   
