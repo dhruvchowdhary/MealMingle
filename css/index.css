@@ -34,15 +34,21 @@ color: #000000;
   
   .bold {
 	font-weight: 700;
+	margin-top: 10px;
+	margin-left: 10px;
   }
  
   
   .button-text {
   position: absolute;
   margin-top: 35px;
-  left: 5px;
+  left: 15px;
   text-align: left;
   width: 100%;
+}
+
+.headwidth {
+	max-width: 230px;
 }
 
 .myButton {
