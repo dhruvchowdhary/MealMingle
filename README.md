@@ -1,5 +1,5 @@
 # MealMingle
-<img src="images/MealMingleMain.png">
+<img src="images/MealMingleMain.png" width="500">
 MealMingle was created during Stanford's TreeHacks 2023 with a 36-hour constraint. Contributors: Dhruv Chowdhary, Hanson Leung, Winson Cheng, and Alfred Yu.
 
 ## Inspiration
