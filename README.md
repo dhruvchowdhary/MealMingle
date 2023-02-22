@@ -1,6 +1,7 @@
 # MealMingle
-<img src="images/MealMingleMain.png" width="170">
+<img src="images/MealMingleMain.png">
 MealMingle was created during Stanford's TreeHacks 2023 with a 36-hour constraint. Contributors: Dhruv Chowdhary, Hanson Leung, Winson Cheng, and Alfred Yu.
+
 ## Inspiration
 It was our first time attending a hackathon, and we were filled with equal parts excitement and trepidation as we made our way to Stanford's TreeHacks. Having come from Berkeley, USC, and right here at Stanford without teams, we all met in Huang basement. We soon settled into the opening ceremonies and listened to the speakers like Sajith from Benchling and sponsors whose products made our jaws drop: we knew that TreeHacks was the right place for us. 
 
